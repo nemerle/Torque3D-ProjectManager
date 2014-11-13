@@ -1,7 +1,7 @@
 #ifndef _MODULE_LIST_H_
 #define _MODULE_LIST_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtCore>
 #include <QtXml/QDomDocument>
 

@@ -1,4 +1,4 @@
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include "torque3dfrontloader.h"
 
 int main(int argc, char *argv[])
@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
    QDir::setCurrent(QApplication::applicationDirPath());
    a.setWindowIcon(QIcon(":/Torque3DFrontloader/resources/toolbox-16x16_32.png"));
-	
+
    Torque3DFrontloader::loadStylesheet();
 
    Torque3DFrontloader w;
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
       w.show();
       w.refreshStylesheet();
       a.connect(&a, SIGNAL(lastWindowClosed()), &a, SLOT(quit()));
-      
+
       return a.exec();
    }
    else

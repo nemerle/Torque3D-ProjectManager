@@ -29,17 +29,17 @@ void ProgressDialog::setRunning(bool running)
 
    if(running)
    {
-      ResumeButton->setShown(false);
-      PauseButton->setShown(true);
-      CancelButton->setShown(true);
-      CloseButton->setShown(false);
+      ResumeButton->setVisible(false);
+      PauseButton->setVisible(true);
+      CancelButton->setVisible(true);
+      CloseButton->setVisible(false);
    }
    else
    {
-      ResumeButton->setShown(false);
-      PauseButton->setShown(false);
-      CancelButton->setShown(false);
-      CloseButton->setShown(true);
+      ResumeButton->setVisible(false);
+      PauseButton->setVisible(false);
+      CancelButton->setVisible(false);
+      CloseButton->setVisible(true);
    }
 }
 
@@ -140,11 +140,11 @@ void ProgressDialog::updateStageList()
 void ProgressDialog::setSubStageProgress(int value)
 {
    ProgressDialogStage *currentStage = mData->mStageList.at(mCurrentStage);
-   
+
    double totalSubStagePercentage = QVariant(currentStage->mSubStagePercent.at(mCurrentSubStage)).toDouble();
    double floatPercent = totalSubStagePercentage * (QVariant(value).toDouble() / 100);
    int currentPercent = QVariant(floatPercent).toInt();
-   
+
    // to find out how much progress we've traveled, lets iterate through previous
    // sub stages and add up their total percentages
    double mod = 0;
@@ -163,12 +163,12 @@ void ProgressDialog::setStageProgress(int value)
    mCurrentProgress = value;
 
    int totalStagePercentage = mData->mStagePercentList.at(mCurrentStage);
-   
+
    if(totalStagePercentage == -1)
    totalStagePercentage = 100 / mData->mStageList.size();
 
    int currentOverallPercent = QVariant(QVariant(totalStagePercentage).toDouble() * (QVariant(value).toDouble() / 100)).toInt();
-   
+
    // lets add up previous stage percentages
    for(int i=0; i<mCurrentStage; i++)
    {
@@ -180,7 +180,7 @@ void ProgressDialog::setStageProgress(int value)
 
       currentOverallPercent += addPercent;
    }
-   
+
    refreshProgress();
    setOverallProgress(currentOverallPercent);
 }
@@ -189,7 +189,7 @@ void ProgressDialog::setOverallProgress(int value)
 {
    OverallProgressBar->setValue(value);
 }
-	
+
 void ProgressDialog::refreshProgress()
 {
    CurrentStageProgressBar->setValue(mCurrentProgress);
@@ -203,9 +203,9 @@ void ProgressDialog::refreshStageList()
       delete child->widget();
       delete child;
    }
-   
+
    mStagesLabelList.clear();
-   
+
    for(int i=0; i<mData->mStageList.size(); i++)
    {
       QLabel *label = new QLabel(mData->mStageList.at(i)->mStageName);
@@ -265,7 +265,7 @@ void ProgressDialog::failWithoutHide()
 void ProgressDialog::doneWithDialog(QString title, QString folderLocation, QString descriptionText, bool showFolderButton)
 {
    done();
-   
+
    mProgressFinished->setWindowTitle(title);
 
    if(!folderLocation.compare("") == 0)
@@ -287,7 +287,7 @@ void ProgressDialog::doneWithDialog(QString title, QString folderLocation, QStri
    }
 
    mProgressFinished->setDescriptionText(descriptionText);
-   
+
    mProgressFinished->show();
 }
 

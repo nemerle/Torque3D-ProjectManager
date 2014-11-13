@@ -6,6 +6,8 @@
 
 using namespace Ui;
 
+class QScrollArea;
+class QVBoxLayout;
 class Torque3DFrontloader;
 class ProjectEntry;
 struct ProjectGenItem;

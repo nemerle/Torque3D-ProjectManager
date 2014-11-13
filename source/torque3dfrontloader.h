@@ -5,6 +5,7 @@
 #include <QSettings>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QtWidgets>
 #include "ui_torque3dfrontloader.h"
 
 #include "ProgressDialog.h"
@@ -22,7 +23,7 @@
 #endif
 
 #ifdef Q_WS_MAC
-#include <signal.h>   
+#include <signal.h>
 #endif
 
 
@@ -44,7 +45,7 @@ class Torque3DFrontloader : public QMainWindow
    Q_OBJECT
 
 public:
-   Torque3DFrontloader(QWidget *parent = 0, Qt::WFlags flags = 0);
+   Torque3DFrontloader(QWidget *parent = 0, Qt::WindowFlags flags = 0);
    ~Torque3DFrontloader();
 
    bool mQuit;
@@ -59,7 +60,7 @@ public:
    QTcpSocket tcpClient;
    QTcpSocket *tcpServerConnection;
    void setupTcp();
-    
+
    void hideThings();
 
    void disableProjectControls();
@@ -86,8 +87,8 @@ public:
 #ifdef Q_WS_WIN
    int PauseResumeThreadList(DWORD dwOwnerPID, bool bResumeThread = false);
 #endif
-   bool getResourceInfo(const QString &filePath, QString &plugin, QString &fileDesc, QString &internalName, 
-                        QString &mimeType, QString &originalFileName, QString &productName, QString &companyName, 
+   bool getResourceInfo(const QString &filePath, QString &plugin, QString &fileDesc, QString &internalName,
+                        QString &mimeType, QString &originalFileName, QString &productName, QString &companyName,
                         QString &companyKey, QString &version);
 
 
@@ -106,7 +107,7 @@ public:
    void createTemplateCopy();
    void createReformattingFiles();
    void createProjectGeneration();
-	
+
    void replaceTextInFile(QString file, QString srcText, QString dstText);
    void createNewProject(const QString &templatePath, const QString &newProjectPath, ModuleListInstance* moduleInst);
 
@@ -173,7 +174,7 @@ private:
    // menus
    QMenu *mFileMenu;
    QMenu *mEditMenu;
-	  
+
    // actions
    QAction *minimizeAction;
    QAction *maximizeAction;
@@ -186,7 +187,7 @@ private:
    QAction *clearSettingsAction;
 
    CopyDir mCopyDir;
-	
+
    QString mTestPath;
 
    QHBoxLayout *mDynamicToolBarLayout;
@@ -227,21 +228,21 @@ private:
    // staging variables
    int mStagingFile;
    int mStagingFileCount;
-	
+
    // installer variables
    int mInstallerFileCount;
    bool mNSISExitNow;
    bool mPMExitNow;
-	
+
    // zip variables
    int mZipFileCount;
    bool mZipExitNow;
-	
+
    // create project variables
    int mCreateProjectFileCount;
    int mCreateProjectFile;
    QString mNewProjectPath;
-    
+
    bool mCreateTemplateCopyDone;
    bool mCreateReformattingFilesDone;
    bool mCreateProjectGenerationDone;
@@ -302,7 +303,7 @@ public slots:
 
    void refreshStylesheet();
    static void loadStylesheet();
-    
+
    // general create slots
    void createPause();
    void createResume();

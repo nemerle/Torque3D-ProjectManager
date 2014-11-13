@@ -1,19 +1,19 @@
 #include "projectList.h"
 #include <QtXml/QDomDocument>
-
+#include <QtWidgets/QMessageBox>
 #ifdef Q_WS_WIN
    HWND ProjectList::appWindow = NULL;
 #endif
 
 
-QString ProjectEntry::getAppPath() 
-{ 
-   return ProjectList::getAppPath(QFileInfo(mPath).absolutePath()); 
+QString ProjectEntry::getAppPath()
+{
+   return ProjectList::getAppPath(QFileInfo(mPath).absolutePath());
 }
 
-QString ProjectEntry::getLevelPath() 
-{ 
-   return ProjectList::getAppPath(QFileInfo(mPath).absolutePath()) + "/levels"; 
+QString ProjectEntry::getLevelPath()
+{
+   return ProjectList::getAppPath(QFileInfo(mPath).absolutePath()) + "/levels";
 }
 
 ProjectList::ProjectList(QWidget *parent)
@@ -42,18 +42,18 @@ QString ProjectList::getAppPath(QString path)
    }
 #ifdef Q_WS_WIN
    return basePath;
-#endif	
+#endif
 #ifdef Q_WS_MAC
    int appIndex = basePath.lastIndexOf(QString(".app"));
    int basePathIndex = basePath.lastIndexOf("/", appIndex);
    QString macPath = basePath.left(basePathIndex);
-	
+
    // since this is getting the app path, lets default it to this
    if(path.isEmpty())
    {
       QDir::setCurrent(macPath);
    }
-	
+
    return macPath;
 #endif
 }
@@ -67,7 +67,7 @@ void ProjectList::buildList()
    //QString projectsPath = baseAppPath + "/Engine/bin/tools/projects.xml";
    QString projectsPath = baseAppPath + "projects.xml";
    QFile file(projectsPath);
-      
+
    if(!file.exists())
       file.setFileName("projects.xml");
 
@@ -124,7 +124,7 @@ void ProjectList::buildList()
          if(e.hasAttribute("type") && e.attribute("type") == "projectDirectory" && e.hasAttribute("path"))
          {
             QString title = e.text();
-			
+
             if(mProjectDirNameList.count(title) == 0)
             {
                mProjectDirNameList.append(title);
@@ -146,7 +146,7 @@ void ProjectList::buildList()
                for(int i=0; i<projects.size(); ++i)
                {
                   QFileInfo projectInfo = projects.at(i);
-                  
+
                   // Find an executable within the directory
                   QDir projDir(projectInfo.filePath());
                   if(projDir.cd("game"))
@@ -186,7 +186,7 @@ void ProjectList::buildList()
                for(int i=0; i<templates.size(); ++i)
                {
                   QFileInfo templateInfo = templates.at(i);
-                  
+
                   // Find the game directory to tell us this is a valid template
                   QDir templateDir(templateInfo.filePath());
                   if(templateDir.cd("game"))
@@ -214,7 +214,7 @@ void ProjectList::buildList()
       n = n.nextSibling();
    }
 
-   // now lets check for removals and emit any removal signals, we see if there are 
+   // now lets check for removals and emit any removal signals, we see if there are
    // any false entires still existing in our originally generated lists
    if(checkRemovals)
    {
@@ -222,7 +222,7 @@ void ProjectList::buildList()
       for(int i=0; i<nameList.size(); i++)
       {
          bool exists = dirNameRemovalMap.value(nameList.at(i));
-		 
+
          if(!exists)
          {
             emit projectCategoryRemoved(nameList.at(i));
@@ -240,7 +240,7 @@ void ProjectList::buildList()
             ProjectEntry *entry = entryList.at(i);
             emit projectEntryRemoved(entry);
             mProjectDirectoryList.remove(entry->mRootName, entry);
-		    
+
             delete entry;
          }
       }
@@ -295,7 +295,7 @@ ProjectEntry *ProjectList::getFirstProjectEntry()
 {
    ProjectEntry* entry = NULL;
    QList<QString> keyList = mProjectDirectoryList.keys();
-   
+
    if(keyList.size() > 0)
    {
       if(mProjectDirectoryList.count(keyList.at(0)) > 0)
