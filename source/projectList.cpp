@@ -56,6 +56,9 @@ QString ProjectList::getAppPath(QString path)
 
    return macPath;
 #endif
+#ifdef Q_OS_LINUX
+   return basePath;
+#endif
 }
 
 void ProjectList::buildList()
