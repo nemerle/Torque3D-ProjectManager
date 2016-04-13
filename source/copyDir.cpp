@@ -2,7 +2,7 @@
 #include "torque3dfrontloader.h"
 
 void CopyDir::run()
-{  
+{
    mPause = false;
    mExitNow = false;
    bool success = copyDirAndFiles(mSrcDir, mDstDir, &mNameExcludeFilter, &mNameIncludeFilter);
@@ -13,7 +13,7 @@ void CopyDir::run()
       pauseThreads.wait(&mutex);
    }
    mutex.unlock();
-   
+
    emit fileCopyDone(success, mExitNow);
 }
 
@@ -62,39 +62,39 @@ bool CopyDir::copyDirAndFiles(QString srcDir, QString dstDir, QStringList *nameE
    {
       if(mExitNow)
       {
-	      return false;
+          return false;
       }
 
-	   QFileInfo entry = entryList.at(i);
+       QFileInfo entry = entryList.at(i);
 
-	   // we do exclude list checking, a lot easier to exclude a couple file types than list all of the included ones
+       // we do exclude list checking, a lot easier to exclude a couple file types than list all of the included ones
       moveOn = false;
       for(int j=0; j<nameExcludeFilter->size(); j++)
       {
-	      rx.setPattern(nameExcludeFilter->at(j));
-		   QString name = entry.absoluteFilePath();
-	      if(rx.exactMatch(name))
-	      {
-			   moveOn = true;
+          rx.setPattern(nameExcludeFilter->at(j));
+           QString name = entry.absoluteFilePath();
+          if(rx.exactMatch(name))
+          {
+               moveOn = true;
 
-			   // now let's check to make sure this specific file isn't on the include list, that overrides exluded types
-			   for(int k=0; k<nameIncludeFilter->size(); k++)
-			   {
-			      // compare the file to the include file adding the root directory (the include filter should be relative files)
-			      QString filePath = QDir::toNativeSeparators(entry.filePath());
-			      QString include = QDir::toNativeSeparators(mRootDir + "/" + nameIncludeFilter->at(k));
+               // now let's check to make sure this specific file isn't on the include list, that overrides exluded types
+               for(int k=0; k<nameIncludeFilter->size(); k++)
+               {
+                  // compare the file to the include file adding the root directory (the include filter should be relative files)
+                  QString filePath = QDir::toNativeSeparators(entry.filePath());
+                  QString include = QDir::toNativeSeparators(mRootDir + "/" + nameIncludeFilter->at(k));
                if(include.compare(filePath) == 0)
-   			   {
+               {
                      moveOn = false;
-		      		  break;
-			      }
-   			}
+                      break;
+                  }
+            }
 
-			   break;
-	      }
-	   }
+               break;
+          }
+       }
 
-	   // if we have been matched against the exclude list then lets skip
+       // if we have been matched against the exclude list then lets skip
       if(moveOn)
          continue;
 

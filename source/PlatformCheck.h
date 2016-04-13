@@ -10,9 +10,9 @@ public:
    static bool mWin;
    static bool mMac;
    static bool mLinux;
-   static bool isWin() { return PlatformCheck::mWin; };
-   static bool isMac() { return PlatformCheck::mMac; };
-   static bool isLinux() { return PlatformCheck::mLinux; };
+   static bool isWin() { return PlatformCheck::mWin; }
+   static bool isMac() { return PlatformCheck::mMac; }
+   static bool isLinux() { return PlatformCheck::mLinux; }
 };
 
 #endif // PLATFORMCHECK_H

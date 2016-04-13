@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>Torque3DFrontloaderClass</class>
- <widget class="QMainWindow" name="Torque3DFrontloaderClass" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="Torque3DFrontloaderClass">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,27 +10,29 @@
     <height>450</height>
    </rect>
   </property>
-  <property name="minimumSize" >
+  <property name="minimumSize">
    <size>
     <width>490</width>
     <height>450</height>
    </size>
   </property>
-  <property name="maximumSize" >
+  <property name="maximumSize">
    <size>
     <width>490</width>
     <height>450</height>
    </size>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Torque 3D Project Manager 2.1</string>
   </property>
-  <property name="styleSheet" >
-   <string/>
+  <property name="styleSheet">
+   <string notr="true">#centralWidget {
+background-color: black;
+}</string>
   </property>
-  <widget class="QWidget" name="centralWidget" >
-   <widget class="QWidget" name="layoutWidget" >
-    <property name="geometry" >
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
@@ -37,16 +40,16 @@
       <height>611</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" >
-     <property name="spacing" >
+    <layout class="QVBoxLayout">
+     <property name="spacing">
       <number>4</number>
      </property>
-     <property name="bottomMargin" >
+     <property name="bottomMargin">
       <number>12</number>
      </property>
      <item>
-      <widget class="QWidget" native="1" name="PageTitle" >
-       <property name="maximumSize" >
+      <widget class="QWidget" name="PageTitle" native="true">
+       <property name="maximumSize">
         <size>
          <width>16777215</width>
          <height>14</height>
@@ -55,9 +58,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QWidget" native="1" name="widget" >
-       <widget class="QTabWidget" name="TabSet" >
-        <property name="geometry" >
+      <widget class="QWidget" name="widget" native="true">
+       <widget class="QTabWidget" name="TabSet">
+        <property name="geometry">
          <rect>
           <x>10</x>
           <y>10</y>
@@ -65,15 +68,15 @@
           <height>391</height>
          </rect>
         </property>
-        <property name="currentIndex" >
+        <property name="currentIndex">
          <number>0</number>
         </property>
-        <widget class="QWidget" name="ExistingTab" >
-         <attribute name="title" >
+        <widget class="QWidget" name="ExistingTab">
+         <attribute name="title">
           <string>Projects</string>
          </attribute>
-         <widget class="QWidget" name="layoutWidget" >
-          <property name="geometry" >
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
            <rect>
             <x>0</x>
             <y>0</y>
@@ -81,17 +84,17 @@
             <height>361</height>
            </rect>
           </property>
-          <layout class="QHBoxLayout" >
+          <layout class="QHBoxLayout">
            <item>
-            <widget class="QWidget" native="1" name="ProjectSnapshotWidget" >
-             <property name="maximumSize" >
+            <widget class="QWidget" name="ProjectSnapshotWidget" native="true">
+             <property name="maximumSize">
               <size>
                <width>300</width>
                <height>16777215</height>
               </size>
              </property>
-             <widget class="QLabel" name="label_13" >
-              <property name="geometry" >
+             <widget class="QLabel" name="label_13">
+              <property name="geometry">
                <rect>
                 <x>10</x>
                 <y>8</y>
@@ -99,12 +102,12 @@
                 <height>17</height>
                </rect>
               </property>
-              <property name="text" >
+              <property name="text">
                <string>Project Snapshot View</string>
               </property>
              </widget>
-             <widget class="QPushButton" name="CreateNewProjectButton" >
-              <property name="geometry" >
+             <widget class="QPushButton" name="CreateNewProjectButton">
+              <property name="geometry">
                <rect>
                 <x>186</x>
                 <y>4</y>
@@ -112,18 +115,19 @@
                 <height>24</height>
                </rect>
               </property>
-              <property name="toolTip" >
+              <property name="toolTip">
                <string>Create a new project</string>
               </property>
-              <property name="text" >
+              <property name="text">
                <string>New Project</string>
               </property>
-              <property name="icon" >
-               <iconset resource="../../source/torque3dfrontloader.qrc" >:/Torque3DFrontloader/resources/new.png</iconset>
+              <property name="icon">
+               <iconset resource="torque3dfrontloader.qrc">
+                <normaloff>:/Torque3DFrontloader/resources/new.png</normaloff>:/Torque3DFrontloader/resources/new.png</iconset>
               </property>
              </widget>
-             <widget class="ProjectTree" native="1" name="ProjectTreeList" >
-              <property name="geometry" >
+             <widget class="ProjectTree" name="ProjectTreeList" native="true">
+              <property name="geometry">
                <rect>
                 <x>10</x>
                 <y>29</y>
@@ -135,9 +139,9 @@
             </widget>
            </item>
            <item>
-            <widget class="QWidget" native="1" name="widget_6" >
-             <widget class="QGroupBox" name="ProjectInformationGroupBox" >
-              <property name="geometry" >
+            <widget class="QWidget" name="widget_6" native="true">
+             <widget class="QGroupBox" name="ProjectInformationGroupBox">
+              <property name="geometry">
                <rect>
                 <x>0</x>
                 <y>10</y>
@@ -145,7 +149,7 @@
                 <height>361</height>
                </rect>
               </property>
-              <property name="font" >
+              <property name="font">
                <font>
                 <family>Arial</family>
                 <weight>50</weight>
@@ -153,14 +157,14 @@
                 <bold>false</bold>
                </font>
               </property>
-              <property name="title" >
+              <property name="title">
                <string/>
               </property>
-              <property name="flat" >
+              <property name="flat">
                <bool>true</bool>
               </property>
-              <widget class="QLabel" name="ExistingProjectInfoMyGameName" >
-               <property name="geometry" >
+              <widget class="QLabel" name="ExistingProjectInfoMyGameName">
+               <property name="geometry">
                 <rect>
                  <x>0</x>
                  <y>-5</y>
@@ -168,13 +172,13 @@
                  <height>20</height>
                 </rect>
                </property>
-               <property name="sizePolicy" >
-                <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
-               <property name="font" >
+               <property name="font">
                 <font>
                  <family>Arial</family>
                  <weight>50</weight>
@@ -182,18 +186,18 @@
                  <bold>false</bold>
                 </font>
                </property>
-               <property name="autoFillBackground" >
+               <property name="autoFillBackground">
                 <bool>false</bool>
                </property>
-               <property name="text" >
+               <property name="text">
                 <string>No Project Selected</string>
                </property>
-               <property name="scaledContents" >
+               <property name="scaledContents">
                 <bool>false</bool>
                </property>
               </widget>
-              <widget class="QLabel" name="ExistingProjectInfoPreviewImage" >
-               <property name="geometry" >
+              <widget class="QLabel" name="ExistingProjectInfoPreviewImage">
+               <property name="geometry">
                 <rect>
                  <x>0</x>
                  <y>20</y>
@@ -201,84 +205,87 @@
                  <height>100</height>
                 </rect>
                </property>
-               <property name="frameShape" >
+               <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
                </property>
               </widget>
-              <widget class="QPushButton" name="OpenFolderButton" >
-                <property name="enabled" >
-                  <bool>true</bool>
-                </property>
-                <property name="geometry" >
-                  <rect>
-                  <x>0</x>
-                  <y>130</y>
-                  <width>111</width>
-                  <height>31</height>
-                  </rect>
-                </property>
-                <property name="toolTip" >
-                  <string>Open the project's folder</string>
-                </property>
-                <property name="text" >
-                  <string>Open Folder</string>
-                </property>
-                <property name="icon" >
-                  <iconset resource="../../source/torque3dfrontloader.qrc" >:/Torque3DFrontloader/resources/open-c.png</iconset>
-                </property>
-                <property name="flat" >
-                  <bool>false</bool>
-                </property>
+              <widget class="QPushButton" name="OpenFolderButton">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>130</y>
+                 <width>111</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="toolTip">
+                <string>Open the project's folder</string>
+               </property>
+               <property name="text">
+                <string>Open Folder</string>
+               </property>
+               <property name="icon">
+                <iconset resource="torque3dfrontloader.qrc">
+                 <normaloff>:/Torque3DFrontloader/resources/open-c.png</normaloff>:/Torque3DFrontloader/resources/open-c.png</iconset>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
               </widget>
-              <widget class="QPushButton" name="ChangeModulesButton" >
-                <property name="enabled" >
-                  <bool>true</bool>
-                </property>
-                <property name="geometry" >
-                  <rect>
-                  <x>0</x>
-                  <y>170</y>
-                  <width>111</width>
-                  <height>31</height>
-                  </rect>
-                </property>
-                <property name="toolTip" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+              <widget class="QPushButton" name="ChangeModulesButton">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>170</y>
+                 <width>111</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">Choose modules for the project and regenerate&lt;/p>&lt;/body>&lt;/html></string>
-                </property>
-                <property name="text" >
-                  <string>Modules</string>
-                </property>
-                <property name="icon" >
-                  <iconset resource="../../source/torque3dfrontloader.qrc" >:/Torque3DFrontloader/resources/constructor-c.png</iconset>
-                </property>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;Choose modules for the project and regenerate&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string>Modules</string>
+               </property>
+               <property name="icon">
+                <iconset resource="torque3dfrontloader.qrc">
+                 <normaloff>:/Torque3DFrontloader/resources/constructor-c.png</normaloff>:/Torque3DFrontloader/resources/constructor-c.png</iconset>
+               </property>
               </widget>
-              <widget class="QPushButton" name="GenerateSourceButton" >
-                <property name="enabled" >
-                  <bool>true</bool>
-                </property>
-                <property name="geometry" >
-                  <rect>
-                  <x>0</x>
-                  <y>210</y>
-                  <width>111</width>
-                  <height>31</height>
-                  </rect>
-                </property>
-                <property name="toolTip" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+              <widget class="QPushButton" name="GenerateSourceButton">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>210</y>
+                 <width>111</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">This will regenerate the source code projects&lt;/p>&lt;/body>&lt;/html></string>
-                </property>
-                <property name="text" >
-                  <string>Regenerate</string>
-                </property>
-                <property name="icon" >
-                  <iconset resource="../../source/torque3dfrontloader.qrc" >:/Torque3DFrontloader/resources/cleanup-c.png</iconset>
-                </property>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;This will regenerate the source code projects&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string>Regenerate</string>
+               </property>
+               <property name="icon">
+                <iconset resource="torque3dfrontloader.qrc">
+                 <normaloff>:/Torque3DFrontloader/resources/cleanup-c.png</normaloff>:/Torque3DFrontloader/resources/cleanup-c.png</iconset>
+               </property>
               </widget>
              </widget>
             </widget>
@@ -290,15 +297,15 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item>
-      <widget class="QWidget" native="1" name="PageBase" >
-       <property name="maximumSize" >
+      <widget class="QWidget" name="PageBase" native="true">
+       <property name="maximumSize">
         <size>
          <width>16777215</width>
          <height>105</height>
         </size>
        </property>
-       <widget class="QGroupBox" name="QuickStartGroupBox" >
-        <property name="geometry" >
+       <widget class="QGroupBox" name="QuickStartGroupBox">
+        <property name="geometry">
          <rect>
           <x>10</x>
           <y>0</y>
@@ -306,7 +313,7 @@ p, li { white-space: pre-wrap; }
           <height>114</height>
          </rect>
         </property>
-        <property name="font" >
+        <property name="font">
          <font>
           <family>Arial</family>
           <weight>50</weight>
@@ -314,14 +321,14 @@ p, li { white-space: pre-wrap; }
           <bold>false</bold>
          </font>
         </property>
-        <property name="title" >
+        <property name="title">
          <string>Quick Start Video Tutorials</string>
         </property>
-        <property name="flat" >
+        <property name="flat">
          <bool>true</bool>
         </property>
-        <widget class="QFrame" name="frame_2" >
-         <property name="geometry" >
+        <widget class="QFrame" name="frame_2">
+         <property name="geometry">
           <rect>
            <x>10</x>
            <y>20</y>
@@ -329,15 +336,15 @@ p, li { white-space: pre-wrap; }
            <height>68</height>
           </rect>
          </property>
-         <property name="frameShape" >
+         <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
-         <property name="frameShadow" >
+         <property name="frameShadow">
           <enum>QFrame::Plain</enum>
          </property>
         </widget>
-        <widget class="QLabel" name="label_19" >
-         <property name="geometry" >
+        <widget class="QLabel" name="label_19">
+         <property name="geometry">
           <rect>
            <x>10</x>
            <y>90</y>
@@ -345,12 +352,12 @@ p, li { white-space: pre-wrap; }
            <height>18</height>
           </rect>
          </property>
-         <property name="text" >
+         <property name="text">
           <string>Getting Started</string>
          </property>
         </widget>
-        <widget class="QFrame" name="frame_3" >
-         <property name="geometry" >
+        <widget class="QFrame" name="frame_3">
+         <property name="geometry">
           <rect>
            <x>140</x>
            <y>20</y>
@@ -358,15 +365,15 @@ p, li { white-space: pre-wrap; }
            <height>68</height>
           </rect>
          </property>
-         <property name="frameShape" >
+         <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
-         <property name="frameShadow" >
+         <property name="frameShadow">
           <enum>QFrame::Plain</enum>
          </property>
         </widget>
-        <widget class="QLabel" name="label_20" >
-         <property name="geometry" >
+        <widget class="QLabel" name="label_20">
+         <property name="geometry">
           <rect>
            <x>140</x>
            <y>90</y>
@@ -374,12 +381,12 @@ p, li { white-space: pre-wrap; }
            <height>18</height>
           </rect>
          </property>
-         <property name="text" >
+         <property name="text">
           <string>World Editor</string>
          </property>
         </widget>
-        <widget class="QFrame" name="frame_4" >
-         <property name="geometry" >
+        <widget class="QFrame" name="frame_4">
+         <property name="geometry">
           <rect>
            <x>270</x>
            <y>20</y>
@@ -387,15 +394,15 @@ p, li { white-space: pre-wrap; }
            <height>68</height>
           </rect>
          </property>
-         <property name="frameShape" >
+         <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
-         <property name="frameShadow" >
+         <property name="frameShadow">
           <enum>QFrame::Plain</enum>
          </property>
         </widget>
-        <widget class="QLabel" name="label_21" >
-         <property name="geometry" >
+        <widget class="QLabel" name="label_21">
+         <property name="geometry">
           <rect>
            <x>270</x>
            <y>90</y>
@@ -403,12 +410,12 @@ p, li { white-space: pre-wrap; }
            <height>18</height>
           </rect>
          </property>
-         <property name="text" >
+         <property name="text">
           <string>Editing Terrain</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_22" >
-         <property name="geometry" >
+        <widget class="QLabel" name="label_22">
+         <property name="geometry">
           <rect>
            <x>400</x>
            <y>90</y>
@@ -416,12 +423,12 @@ p, li { white-space: pre-wrap; }
            <height>18</height>
           </rect>
          </property>
-         <property name="text" >
+         <property name="text">
           <string>Editing Script</string>
          </property>
         </widget>
-        <widget class="QFrame" name="frame_5" >
-         <property name="geometry" >
+        <widget class="QFrame" name="frame_5">
+         <property name="geometry">
           <rect>
            <x>400</x>
            <y>20</y>
@@ -429,15 +436,15 @@ p, li { white-space: pre-wrap; }
            <height>68</height>
           </rect>
          </property>
-         <property name="frameShape" >
+         <property name="frameShape">
           <enum>QFrame::Box</enum>
          </property>
-         <property name="frameShadow" >
+         <property name="frameShadow">
           <enum>QFrame::Plain</enum>
          </property>
         </widget>
-        <widget class="QGroupBox" name="HelpGroupBox" >
-         <property name="geometry" >
+        <widget class="QGroupBox" name="HelpGroupBox">
+         <property name="geometry">
           <rect>
            <x>520</x>
            <y>10</y>
@@ -445,8 +452,8 @@ p, li { white-space: pre-wrap; }
            <height>101</height>
           </rect>
          </property>
-         <widget class="QPushButton" name="pushButton_4" >
-          <property name="geometry" >
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="geometry">
            <rect>
             <x>80</x>
             <y>10</y>
@@ -454,12 +461,12 @@ p, li { white-space: pre-wrap; }
             <height>23</height>
            </rect>
           </property>
-          <property name="text" >
+          <property name="text">
            <string>PushButton</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_5" >
-          <property name="geometry" >
+         <widget class="QPushButton" name="pushButton_5">
+          <property name="geometry">
            <rect>
             <x>80</x>
             <y>30</y>
@@ -467,12 +474,12 @@ p, li { white-space: pre-wrap; }
             <height>23</height>
            </rect>
           </property>
-          <property name="text" >
+          <property name="text">
            <string>PushButton</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_6" >
-          <property name="geometry" >
+         <widget class="QPushButton" name="pushButton_6">
+          <property name="geometry">
            <rect>
             <x>80</x>
             <y>50</y>
@@ -480,12 +487,12 @@ p, li { white-space: pre-wrap; }
             <height>23</height>
            </rect>
           </property>
-          <property name="text" >
+          <property name="text">
            <string>PushButton</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_7" >
-          <property name="geometry" >
+         <widget class="QPushButton" name="pushButton_7">
+          <property name="geometry">
            <rect>
             <x>80</x>
             <y>70</y>
@@ -493,7 +500,7 @@ p, li { white-space: pre-wrap; }
             <height>23</height>
            </rect>
           </property>
-          <property name="text" >
+          <property name="text">
            <string>PushButton</string>
           </property>
          </widget>
@@ -503,8 +510,8 @@ p, li { white-space: pre-wrap; }
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label_2" >
-    <property name="geometry" >
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
      <rect>
       <x>290</x>
       <y>8</y>
@@ -512,31 +519,31 @@ p, li { white-space: pre-wrap; }
       <height>36</height>
      </rect>
     </property>
-    <property name="text" >
+    <property name="text">
      <string/>
     </property>
-    <property name="pixmap" >
-     <pixmap resource="../../source/torque3dfrontloader.qrc" >:/Torque3DFrontloader/resources/Torque_3D_Logo_white.png</pixmap>
+    <property name="pixmap">
+     <pixmap resource="torque3dfrontloader.qrc">:/Torque3DFrontloader/resources/Torque_3D_Logo_white.png</pixmap>
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menuBar" >
-   <property name="geometry" >
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>700</width>
-     <height>22</height>
+     <width>490</width>
+     <height>24</height>
     </rect>
    </property>
   </widget>
-  <action name="actionRefresh_Stylesheet" >
-   <property name="text" >
+  <action name="actionRefresh_Stylesheet">
+   <property name="text">
     <string>Refresh Stylesheet</string>
    </property>
   </action>
  </widget>
- <layoutdefault spacing="6" margin="11" />
+ <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
    <class>ProjectTree</class>
@@ -546,7 +553,7 @@ p, li { white-space: pre-wrap; }
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../../source/torque3dfrontloader.qrc" />
+  <include location="torque3dfrontloader.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -165,7 +165,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11" />
  <resources>
-  <include location="../../source/torque3dfrontloader.qrc" />
+  <include location="torque3dfrontloader.qrc" />
  </resources>
  <connections/>
 </ui>

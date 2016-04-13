@@ -115,7 +115,7 @@ void ModuleList::buildList()
    QString baseAppPath = ProjectList::getAppPath();
    QString projectsPath = baseAppPath + "projects.xml";
    QFile file(projectsPath);
-      
+
    if(!file.exists())
       file.setFileName("projects.xml");
 

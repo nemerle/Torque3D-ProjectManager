@@ -1,5 +1,5 @@
 project(TorqueProjectManager)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.10)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
 CMAKE_POLICY(SET CMP0020 OLD)
 IF(POLICY CMP0043)
     CMAKE_POLICY(SET CMP0043 OLD)
@@ -24,6 +24,8 @@ find_package(Qt5Xml)
 find_package(Qt5Network)
 
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(HEADERS
@@ -68,8 +70,5 @@ set(RESOURCES  source/torque3dfrontloader.qrc)
 
 include_directories(source)
 
-QT5_WRAP_UI(FORMS_SRC ${FORMS})
-qt5_add_resources(resources_SRC ${RESOURCES})
-
-add_executable(projectmanager ${resources_SRC} ${FORMS_SRC} ${SOURCES} ${HEADERS})
+add_executable(projectmanager ${RESOURCES} ${FORMS} ${SOURCES} ${HEADERS})
 qt5_use_modules(projectmanager Core Widgets Network Xml)

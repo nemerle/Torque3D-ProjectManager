@@ -81,5 +81,7 @@
         <file>resources/world-r.png</file>
         <file>resources/world.png</file>
         <file>resources/zip-p.png</file>
+        <file>resources/style.css</file>
+        <file>resources/style-mac.css</file>
     </qresource>
 </RCC>

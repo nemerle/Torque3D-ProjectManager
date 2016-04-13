@@ -1010,9 +1010,14 @@ void Torque3DFrontloader::createProjectGeneration()
    {
       argList.append(rootPath + "/buildFiles/config/project.conf");
    }
-   else
+   else if(PlatformCheck::isMac())
    {
       argList.append(rootPath + "/buildFiles/config/project.mac.conf");
+   }
+   else if(PlatformCheck::isLinux())
+   {
+      // TODO: consider the plain and dedicated linux modes here ?
+      argList.append(rootPath + "/buildFiles/config/project.linux.conf");
    }
 
    argList.append(mBaseAppPath);
@@ -1036,7 +1041,7 @@ void Torque3DFrontloader::createProjectGeneration()
       QString phpPath(mBaseAppPath + "/Engine/bin/php/php.exe");
       mProjectGenerationProcess->start(phpPath, argList);
    }
-   else if(PlatformCheck::isMac())
+   else if(PlatformCheck::isMac() || PlatformCheck::isLinux())
    {
       QString phpPath("/usr/bin/php");
       mProjectGenerationProcess->start(phpPath, argList);
@@ -1264,7 +1269,7 @@ void Torque3DFrontloader::packageZip()
    {
       zipPath.append(mZipAppPath + QDir::separator() + mZipAppName);
    }
-   else if(PlatformCheck::isMac())
+   else if(PlatformCheck::isMac() || PlatformCheck::isLinux())
    {
       zipPath.append("zip");
    }
@@ -1322,7 +1327,7 @@ void Torque3DFrontloader::loadStylesheet()
 {
    // load the application style sheet
    QString styleString;
-   QFile styleFile(QDir::toNativeSeparators(ProjectList::getAppPath() + "/Engine/bin/tools/style.css"));
+   QFile styleFile(":/Torque3DFrontloader/resources/style.css");
    if(styleFile.open(QIODevice::ReadOnly))
    {
       styleString.append(QString(styleFile.readAll()));
@@ -1331,7 +1336,7 @@ void Torque3DFrontloader::loadStylesheet()
 
    if(PlatformCheck::isMac())
    {
-      styleFile.setFileName(QDir::toNativeSeparators(ProjectList::getAppPath() + "/Engine/bin/tools/style-mac.css"));
+      styleFile.setFileName(QDir::toNativeSeparators(":/Torque3DFrontloader/resources/style-mac.css"));
       if(styleFile.open(QIODevice::ReadOnly))
       {
          styleString.append(QString(styleFile.readAll()));
@@ -1474,6 +1479,11 @@ void Torque3DFrontloader::openSourceCode()
    {
       sourceProject.append(QString("/Xcode/%1.xcodeproj").arg(entry->mName));
    }
+   else if(PlatformCheck::isLinux()) {
+       // TODO: consider possible ways of implementing this functionality.
+       QMessageBox::warning(this,tr("Opening Source Code Failed"), tr("This functionality is missing on Linux"));
+       return;
+   }
 
    QFile sourceProjectFile(sourceProject);
    if(sourceProjectFile.exists())
@@ -1593,7 +1603,7 @@ bool Torque3DFrontloader::generateProjects(QString rootPath)
       data = process->readAll();
 
    }
-   else if(PlatformCheck::isMac())
+   else if(PlatformCheck::isMac() || PlatformCheck::isLinux())
    {
       QString phpPath("/usr/bin/php");
       QProcess *process = new QProcess(this);

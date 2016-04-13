@@ -9,7 +9,7 @@ The Torque 3D Project Manager may be used to create new projects based on existi
 
 Building Qt for Windows
 -----------------------
-Before you may compile the Project Manager you will need to build Qt 4.8.2.  Please follow the directions at [Installing Qt for Windows](http://qt-project.org/doc/qt-4.8/install-win.html) up to Step 4.
+Before you may compile the Project Manager you will need to acquire Qt 5.3.1 or newer.  Please choose one of the options described at [Installing Qt for Windows](http://qt-project.org/doc/qt-5/windows-support.html).
 
 Building Project Manager for Windows
 ------------------------
